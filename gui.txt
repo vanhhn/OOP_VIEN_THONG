@@ -1,0 +1,37 @@
+dau tien la cac thay tao file ten file trung ten class 
+in ra man hinh co hai cai thuong dung
+System.out.println() co ln in xong roi xuong dong
+System.out.printf() cai dung nhu lap trinh C 
+cmt trong Java :Ctrl+?
+Nhap tu ban phim,tu file:Scanner tu goi java.util.Scanner;
+cac kieu du lieu co ban: so nguyen :int:10^9,long:10^18
+so thuc float,double
+chuoi :String
+kieu luan li:boolean
+sc.next(): thi minh chi nhap duoc den khi co khaong trang thoi
+sc.nextLine() thi nhap duoc ca dong 
+cau lenh dieu khien :if else
+vong lap:
+  co hai cai for():biet truoc so lan lap,while() khong biet truoc so lan lap 
+mang 1 chieu luu tru cac phan tu co cung kieu du lieu
+
+String thì 'S' phải viết hoa
+các phương thức hay dùng
+duyệt String dùng vòng for
+vd:
+String s="Hello World";
+for(int i=0;i<s.length;i++){
+  System.out.println(s.charAt(i));
+}
+lấy chiều dài xâu: s.length;
+lấy kí tự ở vị trí i thì là s.charAt(i);
+muốn cộng chuỗi thì dùng dấu +;
+
+kiem tra chuoi nay co nam trong chuoi khac hay khong 
+dung .contains
+
+
+substring
+
+Mang mot chieu chua cac du kieu cung kieu lien tiep index tu 0
+vd :int[] arr=new int[5]; 
