@@ -41,16 +41,16 @@ class Author {
 class Book {
   private String name;
   private Author author;
-  private String price; // Chuyển sang String
+  private double price; // Chuyển sang String
   private int qty = 0;
 
-  public Book(String name, Author author, String price) {
+  public Book(String name, Author author, double price) {
     this.name = name;
     this.author = author;
     this.price = price;
   }
 
-  public Book(String name, Author author, String price, int qty) {
+  public Book(String name, Author author, double price, int qty) {
     this.name = name;
     this.author = author;
     this.price = price;
@@ -73,11 +73,11 @@ class Book {
     this.author = author;
   }
 
-  public String getPrice() {
+  public double getPrice() {
     return price;
   }
 
-  public void setPrice(String price) {
+  public void setPrice(double price) {
     this.price = price;
   }
 
@@ -90,7 +90,7 @@ class Book {
   }
 
   public String toString() {
-    return String.format("Book[name=%s, %s, price=%s, qty=%d]", this.name, this.author.toString(), this.price, this.qty);
+    return String.format("Book[name=%s, %s, price=%.2f, qty=%d]", this.name, this.author.toString(), this.price, this.qty);
   }
 }
 
@@ -103,7 +103,7 @@ public class OOP012 {
       String s = sc.nextLine();
       if (s.equals("Book")) {
         String name_book = sc.nextLine();
-        String price = sc.nextLine(); // đổi từ double sang String
+        double price = Double.parseDouble(sc.nextLine());
         int so_luong = Integer.parseInt(sc.nextLine());
         sc.nextLine(); // bỏ qua dòng Author
         String name_author = sc.nextLine();
@@ -111,23 +111,22 @@ public class OOP012 {
         String gender = sc.nextLine();
         Author author = new Author(name_author, email, gender);
         Book book = new Book(name_book, author, price, so_luong);
-        System.out.println(book);
         sc.nextLine(); // bỏ qua dòng End
-      } else if (s.equals("Author")) {
+        System.out.println(book);
+      } 
+      else if (s.equals("Author")) {
         String name_author = sc.nextLine();
         String email = sc.nextLine();
         String gender = sc.nextLine();
         sc.nextLine(); // bỏ qua dòng Book
         Author author = new Author(name_author, email, gender);
         String name_book = sc.nextLine();
-        String price = sc.nextLine(); // đổi từ double sang String
+       double price = Double.parseDouble(sc.nextLine()); // đổi từ double sang String
         int so_luong = Integer.parseInt(sc.nextLine());
         Book book = new Book(name_book, author, price, so_luong);
-        System.out.println(book);
         sc.nextLine(); // bỏ qua dòng End
-      } else if (s.equals("End")) {
-        continue;
-      }
+        System.out.println(book);   
+      } 
     }
     sc.close();
   }
