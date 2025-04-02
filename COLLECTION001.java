@@ -26,7 +26,7 @@ class Product{
     this.stock = stock;
   }
   public String toString(){
-    return String.format("%s: %d",this.name,this.stock);
+    return String.format("%s: %d",this.name,this.price);
   }
   
 }
