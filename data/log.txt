@@ -1,0 +1,3 @@
+INFO: Application started.
+WARN: Low memory detected.
+ERROR: Connection failed.
