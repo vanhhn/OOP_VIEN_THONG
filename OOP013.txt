@@ -1,0 +1,44 @@
+import java.util.*;
+class Book{
+  private String bookId,title,author;
+  public Book(String bookId,String title,String author){
+    this.bookId=bookId;
+    this.title=title;
+    this.author=author;
+  }
+  public void display(){
+    System.out.printf("Sách: %s (Mã: %s) - %s\n",this.title,this.bookId,this.author);
+  }
+}
+class Borrow{
+  private String borrowId,borrower;
+  private int days;
+  private Book book;
+  public Borrow(String borrowId,Book book,String borrower,int days){
+    this.borrowId=borrowId;
+    this.book=book;
+    this.borrower=borrower;
+    this.days=days;
+  }
+  public double calculateFee(){
+    return (double)days*5000;
+  }
+  public void display(){
+    System.out.println("--- Phiếu mượn sách ---");
+    System.out.printf("Mã phiếu: %s\nNgười mượn: %s\n",this.borrowId,this.borrower);
+    this.book.display();
+    System.out.printf("Số ngày mượn: %d\nPhí mượn: %.1f",this.days,this.calculateFee());
+  }
+}
+public class OOP013{
+  public static void main(String[] args){
+    Scanner sc=new Scanner(System.in);
+    Book book=new Book(sc.nextLine(),sc.nextLine(),sc.nextLine());
+    String borrowId=sc.nextLine();
+    String borrower=sc.nextLine();
+    int days=sc.nextInt();
+    Borrow borrow=new Borrow(borrowId,book,borrower,days);
+    borrow.display();
+    sc.close();
+  }
+}

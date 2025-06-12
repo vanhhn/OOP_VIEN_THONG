@@ -1,0 +1,62 @@
+//oke tao file txt cho no do goi y 
+// vay thi tao class CongViec truoc voi cac thuoc tinh kia 
+// ty quen ban dau cu import may cai thu vien vao 
+import java.util.*;
+class CongViec{
+  private String name;
+  private int doUuTien;
+  private int time;
+  // h viet contructor
+  public CongViec(String name,int doUuTien,int time){
+    this.name=name;
+    this.doUuTien=doUuTien;
+    this.time=time;
+  }
+  // h viet cac getter va setter kha nang bai nay chi can viet getter
+  public String getName(){
+    return this.name;
+  }
+  public int getDoUuTien(){
+    return this.doUuTien;
+  }
+  public int getTime(){
+    return this.time;
+  }
+  // h viet ham toString()
+  public String toString(){
+    return String.format("%s %d %d",this.name,this.doUuTien,this.time);
+  }
+}
+public class Main{
+  public static void main(String[] args){
+    // h den ham main thuong la minh se luu vo ArrayList roi sort theo tieu chi cua de
+    Scanner sc=new Scanner(System.in);
+    int N=sc.nextInt();
+    sc.nextLine();
+    ArrayList<CongViec>arr=new ArrayList<CongViec>();
+    for(int i=0;i<N;i++){
+      String s=sc.nextLine();
+      String[] ar=s.split("\\s+");// tach cac thanh phan ra 
+      arr.add(new CongViec(ar[0],Integer.parseInt(ar[1]),Integer.parseInt(ar[2])));
+    }
+    // h se sort
+    Collections.sort(arr,new Comparator<CongViec>(){
+       @Override
+       public int compare(CongViec o1,CongViec o2){
+          // xet truong hop cung do uu tien truoc
+          if(o1.getDoUuTien()==o2.getDoUuTien()){
+            // h xet truong hop xem co trung thoi gian khong
+            if(o1.getTime()==o2.getTime()){
+              return o1.getName().compareTo(o2.getName());
+            }else{
+              return Integer.compare(o1.getTime(),o2.getTime());
+            }
+
+          }
+           return Integer.compare(o1.getDoUuTien(),o2.getDoUuTien());
+       }
+    });
+    System.out.println(arr.get(0));
+    sc.close();
+  }
+}// oke xong
